@@ -1,20 +1,24 @@
 <audio id="musica" loop preload="auto">
-  <source src="TU-ARCHIVO.mp3" type="audio/mpeg">
+  <source src="Entre tus brazos quiero quedarme.m4a (2).mp3" type="audio/mpeg">
 </audio>
 
-<button id="botonMusica">▶️ Reproducir música</button>
+<button id="botonMusica" type="button">▶️ Reproducir música</button>
 
 <script>
   const musica = document.getElementById("musica");
   const boton = document.getElementById("botonMusica");
 
   boton.addEventListener("click", async () => {
-    if (musica.paused) {
-      await musica.play();
-      boton.textContent = "⏸️ Pausar música";
-    } else {
-      musica.pause();
-      boton.textContent = "▶️ Reproducir música";
+    try {
+      if (musica.paused) {
+        await musica.play();
+        boton.textContent = "⏸️ Pausar música";
+      } else {
+        musica.pause();
+        boton.textContent = "▶️ Reproducir música";
+      }
+    } catch (error) {
+      console.error(error);
     }
   });
 </script>
